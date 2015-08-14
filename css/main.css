@@ -1,0 +1,118 @@
+.question {
+	font-family: 'Roboto', sans-serif; 
+	font-size: 24px; 
+	font-weight: 100;
+	color: #878787; 
+	letter-spacing: 0.03em;
+	-webkit-font-smoothing: antialiased;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+	height: 35px;
+	width: 900px;
+}
+
+.top-bar {
+	color: white;
+	height: 45px;
+	display: block;
+	margin-top: 15px;
+}
+
+
+.big-photo {
+	background-image: url("../images/ibm.jpg");
+	background-color:green;
+	background-position: center bottom;
+	background-repeat: no repeat;
+	background-size: cover;
+	height: 35rem;
+}
+
+.button-one {
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.3;
+	display: inline-block;
+	position: absolute;
+	left: 40px;
+	top: 195px;
+	z-index: 9000;
+
+}
+.button-one:hover {
+	background-color: orange;
+	opacity: 1.0;
+}
+.button-two {
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.3;
+	display: inline-block;
+	position: absolute;
+	left: 40px;
+	top: 400px;
+	z-index: 9000;
+
+}
+.button-two:hover {
+	background-color: orange;
+	opacity: 1.0;
+}
+.button-three {
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.3;
+	display: inline-block;
+	position: absolute;
+	left: 245px;
+	top: 195px;
+	z-index: 9000;
+}
+.button-three:hover {
+	background-color: orange;
+	opacity: 1.0;
+}
+.button-four {
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	opacity: 0.3;
+	display: inline-block;
+	position: absolute;
+	left: 245px;
+	top: 400px;
+	z-index: 9000;
+
+}
+.button-four:hover {
+	background-color: orange;
+	opacity: 1.0;
+}
+
+
+
+
+
+.button-text {
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: -0.03em;
+	-webkit-font-smoothing: antialiased;
+	font-size: 30px;
+	font-weight: 500;
+	color:black;
+	text-align: center;
+}
+
+
+
+
+
+
+/* * {
+	border: red;
+	border-style: solid;
+} /*
