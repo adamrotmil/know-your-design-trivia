@@ -1,0 +1,20 @@
+question01
+Object {question: "Who designed the 1972 version of the IBM visual identity?", answer01: "Paul Rand", answer02: "Jerry Kuyper", answer03: "Steven Heller", answer04: "Wolfgang Weingart"…}
+
+$('div.button-three > p.button-text').innerHTML = question01.answer02
+"Jerry Kuyper"
+
+question01.correct = "Paul Rand"
+"Paul Rand"
+
+question01.correct
+"Paul Rand"
+
+
+
+//////
+
+use this version for assigning text
+
+$('h1.question').text("Hello world");
+
