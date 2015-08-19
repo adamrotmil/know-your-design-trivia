@@ -29,77 +29,72 @@
 	height: 50rem;
 }
 
+.button-box {
+	width: 405px;
+	height: 405px;
+	background-color: darkGray;
+	position: absolute;
+	left: 0px;
+	top: 200px;
+	display: block;
+}
+
 .button-one {
 	width: 200px;
 	height: 200px;
 	background-color: darkGray;
-	
 	display: inline-block;
 	position: absolute;
-	left: 40px;
-	top: 195px;
+	left: 0px;
+	top: 0px;
 	z-index: 9000;
-
 }
 .button-one:hover {
 	background-color: orange;
-
 	cursor: pointer;
 }
 .button-two {
 	width: 200px;
 	height: 200px;
 	background-color: darkGray;
-
 	display: inline-block;
 	position: absolute;
-	left: 40px;
-	top: 400px;
+	left: 0px;
+	top: 205px;
 	z-index: 9000;
-
 }
 .button-two:hover {
 	background-color: orange;
-
 	cursor: pointer;
 }
 .button-three {
 	width: 200px;
 	height: 200px;
 	background-color: darkGray;
-	
 	display: inline-block;
 	position: absolute;
-	left: 245px;
-	top: 195px;
+	left: 205px;
+	top: 0px;
 	z-index: 9000;
 }
 .button-three:hover {
 	background-color: orange;
-	
 	cursor: pointer;
 }
 .button-four {
 	width: 200px;
 	height: 200px;
 	background-color: darkGray;
-	
 	display: inline-block;
 	position: absolute;
-	left: 245px;
-	top: 400px;
+	left: 205px;
+	top: 205px;
 	z-index: 9000;
-
 }
 .button-four:hover {
 	background-color: orange;
-
 	cursor: pointer;
 }
-
-
-
-
 
 .button-text {
 	font-family: 'Roboto', sans-serif;
@@ -111,8 +106,6 @@
 	text-align: center;
 }
 
-
-
 .footer {
 	background-color: white;
 	width: 100%;
@@ -122,8 +115,39 @@
 
 }
 
+.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 30em;
+  animation: type 4s steps(60, end); 
+}
 
-/* * {
-	border: red;
-	border-style: solid;
-} /*
+.typing:nth-child(2){
+  animation: type2 8s steps(60, end);
+}
+
+span{
+  animation: blink 1s infinite;
+}
+
+@keyframes type{ 
+  from { width: 0; } 
+} 
+
+@keyframes type2{
+  0%{width: 0;}
+  50%{width: 0;}
+  100%{ width: 100; } 
+} 
+
+@keyframes blink{
+  to{opacity: .0;}
+}
+
+::selection{
+  background: black;
+}
+
+#question {
+	
+}
