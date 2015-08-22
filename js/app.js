@@ -5,6 +5,13 @@ function typeToggle() { // reset the animation on the text
 	e.classList.add("typing");
 }
 
+function showError() { // shake the screen
+	var e = document.getElementById("frame")
+	e.classList.remove("shake")
+	e.offsetWidth = e.offsetWidth
+	e.classList.add("shake");
+}
+
 // data for answers
 quiz = {};
 quiz.answer = {
@@ -14,11 +21,16 @@ quiz.answer = {
 
 
 // listener for button click
-$(document).on('mousedown', '.button-one', function() {
-	var guess = this.text().toLowerCase();
-	console.log(guess);
+$(document).on('mousedown', '.button', function() {
+	var guess = ($(this).text().toLowerCase());
 	if ((quiz.answer[guess]) === true) {
 		console.log("evaluated to true boolean")
+			// correct answer behavior
+
+	} else {
+		console.log("false")
+			// wrong answer behavior
+		showError();
 	}
 });
 
