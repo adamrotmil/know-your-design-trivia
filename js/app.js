@@ -26,6 +26,10 @@ $(document).on('mousedown', '.button', function() {
 	if ((quiz.answer[guess]) === true) {
 		console.log("evaluated to true boolean")
 			// correct answer behavior
+		$(".overlay").fadeIn(1000);
+		$("a.close").click(function() {
+			$(".overlay").fadeOut(1000);
+		});
 
 	} else {
 		console.log("false")
