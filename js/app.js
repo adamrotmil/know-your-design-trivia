@@ -70,11 +70,12 @@ function switchQuestion() {
 			quizdata = {
 				image: "./images/kodak-yellow.jpg",
 				headline: "This is Kodak Yellow",
-				choices: ["First", "Third", "Second", "Fourth"]
+				choices: ["First", "Third", "Second", "Fourth"],
+				explain: "Kodak Yellow is actually kinda orange, depending on who you ask. This color sets Kodak apart from the sea of blue in which brands swim."
 			};
 			break;
 	};
-}
+};
 
 // click listener and behaviors
 $(document).on('mousedown', '.button', function() {
@@ -114,31 +115,43 @@ $(document).on('mousedown', '.button', function() {
 					("<img src=\"./images/moma-logo.jpg\" />")
 				);
 				break;
+			case 5: //moma logo
+				$('#explain').text(quizdata.explain);
+				$('#explain-video').empty();
+				$('#explain-video').append(
+					("<iframe width=\"420\" height=\"236\" src=\"https://www.youtube.com/embed/Ckz2uP8VmIE\" frameborder=\"0\" allowfullscreen></iframe>")
+				);
+				break;
 
 		};
 		score = (score + 1);
 		questionFlag = (questionFlag + 1);
-
-		$("a.close").click(function() {
-			// go to next question behavior
-			$(".overlay").fadeOut(1000);
-			switchQuestion();
-			console.log("you are now on question " + questionFlag);
-			console.log(quiz.answer);
-			$('.big-photo').css('background-image', 'url(' + quizdata.image + ')');
-			$('h1.question').text(quizdata.headline);
-			typeToggle() //reset headline animation
-			$('#choice-one').text(quizdata.choices[0]);
-			$('#choice-two').text(quizdata.choices[1]);
-			$('#choice-three').text(quizdata.choices[2]);
-			$('#choice-four').text(quizdata.choices[3]);
-		});
 	} else {
 		console.log("false")
 			// wrong answer behavior
 		showError();
 	}
 });
+
+
+$("a.close").click(function() {
+	// go to next question behavior
+	$(".overlay").fadeOut(1000);
+	switchQuestion();
+	console.log("you are now on question " + questionFlag);
+	console.log(quiz.answer);
+	$('.big-photo').css('background-image', 'url(' + quizdata.image + ')');
+	$('h1.question').text(quizdata.headline);
+	typeToggle() //reset headline animation
+	$('#choice-one').text(quizdata.choices[0]);
+	$('#choice-two').text(quizdata.choices[1]);
+	$('#choice-three').text(quizdata.choices[2]);
+	$('#choice-four').text(quizdata.choices[3]);
+	$('#content').empty(); //stop Youtube from playing beyond exit
+	$('#explain-video').empty();
+});
+
+
 
 // *** to do list
 //
