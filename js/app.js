@@ -130,12 +130,14 @@ function switchQuestion() {
 // click listener and behaviors
 $(document).on('mousedown', '.button', function() {
 	guessCount++;
+
 	var guess = ($(this).text().toLowerCase());
 	if ((quiz.answer[guess]) === true) {
 		console.log("evaluated to true boolean")
 			// correct answer behavior
 		console.log("Current score is " + score);
 		$("#modal").fadeIn(1000);
+		$('#next').toggleClass("poof");
 		// write unique information into overlay
 		console.log("about to switch the video, question flag is now " + questionFlag);
 		switch (questionFlag) {
@@ -216,8 +218,8 @@ $(document).on('mousedown', '.button', function() {
 $("a#next").click(function() {
 	// go to next question behavior
 	if (questionFlag <= totalQuestions) { //are we still asking questions
-
 		$("#modal").fadeOut(1000);
+		$(".big-photo").fadeIn(1000);
 		switchQuestion();
 		console.log("you are now on question " + questionFlag);
 		console.log(quiz.answer);
@@ -228,8 +230,11 @@ $("a#next").click(function() {
 		$('#choice-two').text(quizdata.choices[1]);
 		$('#choice-three').text(quizdata.choices[2]);
 		$('#choice-four').text(quizdata.choices[3]);
-		$('#content').empty(); //stop Youtube from playing beyond exit
-		$('#explain-video').empty();
+		// $('#content').empty(); //stop Youtube from playing beyond exit
+		setTimeout(function() {
+			$('#explain-video').empty();
+		}, 700);
+
 	} else {
 		//goodbye
 		console.log("goodbye")
