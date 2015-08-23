@@ -243,6 +243,7 @@ $("a#next").click(function() {
 		//$('#bye-text').text("You got " + score + " questions right in " + guessCount + " guesses!");
 		var rating = Math.round(((score / guessCount) * 100));
 		console.log("rating is now rounded to " + rating);
+		$('#percent-feed').toggleClass('bounce');
 		$('#percent-feed').text(rating);
 		$('#percent-feed').append(
 			$("<p id=\"lil\">%</p>")
