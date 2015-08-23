@@ -197,9 +197,9 @@ span{
 	background: #236B8E;
 	position: relative;
 	height: auto;
-	width: 600px;
+	width: 700px;
 	border-radius: 3px;
-	top: 15%;
+	top: 5%;
 	margin: auto auto;
 	border: 1px solid rgba(0,0,0,0.1);
 }
@@ -253,6 +253,27 @@ span{
 	padding: 0.5em 2em;
 	margin-bottom: 50px;
 	border-radius: 3px;
+}
+
+.splash {
+	background-image: url("./images/paula.jpg");
+	background-position: center bottom;
+	background-repeat: no repeat;
+	background-size: cover;
+	height: 50rem;
+}
+
+.explain-video {
+	width: 420px;
+	height: 315px;
+	margin-bottom: 5px;
+}
+
+.pad-top {
+	float: right;
+    position: relative;
+    top: -32px;
+    left: 20px;
 }
 
 
