@@ -1,8 +1,9 @@
 var score = 0 // start with no score
 var questionFlag = 1 // which question are you on
-var totalQuestions = 8 // how many questions in this quiz
+var totalQuestions = 9 // how many questions in this quiz
+var guessCount = 0 // how many guesses have you made
 var myNumber = Math.floor((Math.random() * 20) + 1); // pick a random number
-$("#goodbye").fadeOut(1000); // keep hidden
+$('#goodbye').fadeOut(1000); // keep hidden
 // reset the animation on the text
 function typeToggle() {
 	var e = document.getElementById("question")
@@ -29,6 +30,9 @@ function switchQuestion() {
 				"paul rand": true
 			};
 			quizdata = {
+				image: "./images/ibm.jpg",
+				headline: "Who designed this visual identity for IBM?",
+				choices: ["Paul Rand", "Jerry Kuyper", "Steven Heller", "Wolfgang Weingart"],
 				explain: "It was a team effort led by Eliot Noyes, but Paul Rand’s series of IBM logos culminated in a 1972 version formed from stacked stripes."
 			}
 			break;
@@ -109,17 +113,29 @@ function switchQuestion() {
 				explain: "In 1976, Wozniak and Steve Jobs founded Apple Computer with Wozniak's Apple I personal computer, later introducing his Apple II. \“Woz\” was awarded the National Medal of Technology by the President in 1985."
 			};
 			break;
+		case 9:
+			quiz.answer = {
+				"susan kare": true
+			};
+			quizdata = {
+				image: "./images/chicago.jpg",
+				headline: "She designed the Chicago typeface and countless icons",
+				choices: ["Ellen Lupton", "Susan Kare", "Carol Twombly", "Zuzana Licko"],
+				explain: "Chicago, first called Elefont, was the first typeface developed for the Mac. Mac OS X excludes Chicago, but its core Thai fonts, Krungthep and Silom, resemble Chicago. Kare heads a digital design practice in San Francisco."
+			};
+			break;
 	};
 };
 
 // click listener and behaviors
 $(document).on('mousedown', '.button', function() {
+	guessCount++;
 	var guess = ($(this).text().toLowerCase());
 	if ((quiz.answer[guess]) === true) {
 		console.log("evaluated to true boolean")
 			// correct answer behavior
 		console.log("Current score is " + score);
-		$(".overlay").fadeIn(1000);
+		$("#modal").fadeIn(1000);
 		// write unique information into overlay
 		console.log("about to switch the video, question flag is now " + questionFlag);
 		switch (questionFlag) {
@@ -178,6 +194,13 @@ $(document).on('mousedown', '.button', function() {
 					("<iframe width=\"420\" height=\"236\" src=\"https://www.youtube.com/embed/pJif4i9NRdI\" frameborder=\"0\" allowfullscreen></iframe>")
 				);
 				break;
+			case 9: //susan kare
+				$('#explain').text(quizdata.explain);
+				$('#explain-video').empty();
+				$('#explain-video').append(
+					("<img src=\"./images/kare-out.jpg\" />")
+				);
+				break;
 
 		};
 		score++;
@@ -190,11 +213,11 @@ $(document).on('mousedown', '.button', function() {
 });
 
 
-$("a.close").click(function() {
+$("a#next").click(function() {
 	// go to next question behavior
 	if (questionFlag <= totalQuestions) { //are we still asking questions
 
-		$(".overlay").fadeOut(1000);
+		$("#modal").fadeOut(1000);
 		switchQuestion();
 		console.log("you are now on question " + questionFlag);
 		console.log(quiz.answer);
@@ -212,16 +235,43 @@ $("a.close").click(function() {
 		console.log("goodbye")
 		$("#modal").fadeOut(1000);
 		$("#goodbye").fadeIn(1000);
+		//$('#bye-text').text("You got " + score + " questions right in " + guessCount + " guesses!");
+		var rating = Math.round(((score / guessCount) * 100));
+		console.log("rating is now rounded to " + rating);
+		$('#percent-feed').text(rating);
+		$('#percent-feed').append(
+			$("<p id=\"lil\">%</p>")
+		)
+		$('#lil').toggleClass('lil'); //smaller percent symbol
+		$('#bye-wrap').append(
+			$("<p>You're a Junior Art Director!</p>")
+		)
 	}
 });
 
 
 
-// *** to do list
+$(document).on('mousedown', 'a#try-again.close', function() {
+	console.log("fired the listener for try again button");
+	score = 0 // start with no score
+	questionFlag = 1 // which question are you on
+	switchQuestion();
+	$('.big-photo').css('background-image', 'url(' + quizdata.image + ')');
+	$('h1.question').text(quizdata.headline);
+	typeToggle() //reset headline animation
+	$('#choice-one').text(quizdata.choices[0]);
+	$('#choice-two').text(quizdata.choices[1]);
+	$('#choice-three').text(quizdata.choices[2]);
+	$('#choice-four').text(quizdata.choices[3]);
+	$('#explain-video').empty();
+	$("#bye-wrap > p").empty();
+	$("#goodbye").fadeOut(1000);
+});
+
+
+// to do list
 //
-// add response info after correct answer
-// tally score at the end behavior incl accuracy
-
-
-
+// enhance exit screen
+// add intro screen
+//
 //

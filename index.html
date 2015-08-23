@@ -31,17 +31,21 @@
 
 <!-- Modal window for goodbye -->
 <div class="overlay" id="goodbye">
-	<div class="content">
+	<div class="bye">
 		<h3>Great Job!</h3>
-		<div>
-		<p id="bye-text">Text about this goes here.</p>
+		<div id="bye-wrap">
+			<p id="bye-text">Score text.</p>
+			<p class="percent-feed" id="percent-feed">00</p>	
+		</div>
+
 		<!-- score counter -->
-		<div class="pad-top">
-		<a class="close" href="#">TRY AGAIN!</a>
+		
+
+		<div class="bye-top">
+			<a class="close" id="try-again" href="#">TRY AGAIN!</a>
 		</div>
-		<div class="pad-top">
-		<a class="close" href="#">SHARE</a>
-		</div>
+		<div class="bye-top">
+			<a class="close" id="share" href="#">SHARE</a>
 		</div>
 	</div>
 </div>
@@ -55,7 +59,7 @@
 		<p id="explain">Text about this goes here.</p>
 		<div id="explain-video" style="explain-video"></div>
 		<div class="pad-top">
-		<a class="close" href="#">NEXT CHALLENGE!</a>
+		<a class="close" id="next" href="#">NEXT CHALLENGE!</a>
 		</div>
 		</div>
 	</div>
