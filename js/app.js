@@ -58,7 +58,7 @@ function switchQuestion() {
 			};
 			quizdata = {
 				image: "./images/franklin-gothic.jpg",
-				headline: "Which one is the real Franklin Gothic?",
+				headline: "Will the real Franklin Gothic please stand up?",
 				choices: ["Solid Line", "Not Franklin", "Dotted Line", "Whatever..."],
 				explain: "The museum spent millions of dollars, according to the New York Times, to \'tighten the M and pinch the o\' in order to make the typography historically correct."
 			};
@@ -72,6 +72,28 @@ function switchQuestion() {
 				headline: "This is Kodak Yellow",
 				choices: ["First", "Third", "Second", "Fourth"],
 				explain: "Kodak Yellow is actually kinda orange, depending on who you ask. This color sets Kodak apart from the sea of blue in which brands swim."
+			};
+			break;
+		case 6:
+			quiz.answer = {
+				"herbert matter": true
+			};
+			quizdata = {
+				image: "./images/herbert-matter.jpg",
+				headline: "Name the designer of these Swiss tourism posters",
+				choices: ["Armin Hofmann", "Erik Speikermann", "Herbert Bayer", "Herbert Matter"],
+				explain: "Herbert Matter was sent back to Zurich for lack of French immigration papers, and designed these posters using a photomontage technique."
+			};
+			break;
+		case 7:
+			quiz.answer = {
+				"bob indiana": true
+			};
+			quizdata = {
+				image: "./images/love-indiana.jpg",
+				headline: "Which artist can you thank for the LOVE statue shown here?",
+				choices: ["Milton Glasier", "Alexander Calder", "Bob Indiana", "Louise Fili"],
+				explain: "Indiana designed this iconic wordplay, with its gently sloping O snuggling against the sturdy word \"LOVE.\" In other news, the design \"I ♥ NY\" by Milton Glasier can only be seen as a gift to the world, since it is endlessly copied."
 			};
 			break;
 	};
@@ -115,11 +137,25 @@ $(document).on('mousedown', '.button', function() {
 					("<img src=\"./images/moma-logo.jpg\" />")
 				);
 				break;
-			case 5: //moma logo
+			case 5: //kodak
 				$('#explain').text(quizdata.explain);
 				$('#explain-video').empty();
 				$('#explain-video').append(
 					("<iframe width=\"420\" height=\"236\" src=\"https://www.youtube.com/embed/Ckz2uP8VmIE\" frameborder=\"0\" allowfullscreen></iframe>")
+				);
+				break;
+			case 6: //herbert matter
+				$('#explain').text(quizdata.explain);
+				$('#explain-video').empty();
+				$('#explain-video').append(
+					("<iframe width=\"420\" height=\"236\" src=\"https://www.youtube.com/embed/0c2SGmRxr60\" frameborder=\"0\" allowfullscreen></iframe>")
+				);
+				break;
+			case 7: //i love new york
+				$('#explain').text(quizdata.explain);
+				$('#explain-video').empty();
+				$('#explain-video').append(
+					("<img src=\"./images/eat-die.jpg\" />")
 				);
 				break;
 
