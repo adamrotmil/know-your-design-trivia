@@ -349,13 +349,19 @@ font-size: 0.8em;
 }
 
 .bye > div a {
-	font-size: 0.8em;
-	background: #1F253D;
-	color: #95a5a6;
-	padding: 0.5em 2em;
-	margin-left:10px;
-	margin-bottom: 50px;
-	border-radius: 3px;
+font-size: 0.8em;
+    background: darkGray;
+    color: black;
+    padding: 0.5em 2em;
+    margin-left: 10px;
+    margin-bottom: 50px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+.bye > div a:hover {
+	background: orange;
 }
 
 .lil {

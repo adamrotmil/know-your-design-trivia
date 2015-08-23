@@ -268,9 +268,11 @@ $(document).on('mousedown', 'a#try-again.close', function() {
 	$('#choice-two').text(quizdata.choices[1]);
 	$('#choice-three').text(quizdata.choices[2]);
 	$('#choice-four').text(quizdata.choices[3]);
-	$('#explain-video').empty();
-	$("#bye-wrap > p").empty();
 	$("#goodbye").fadeOut(1000);
+	setTimeout(function() {
+		$('#explain-video').empty();
+		$("#bye-wrap > p").empty();
+	}, 700);
 });
 
 
