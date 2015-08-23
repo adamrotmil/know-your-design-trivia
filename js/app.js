@@ -1,6 +1,8 @@
 var score = 0 // start with no score
 var questionFlag = 1 // which question are you on
+var totalQuestions = 8 // how many questions in this quiz
 var myNumber = Math.floor((Math.random() * 20) + 1); // pick a random number
+$("#goodbye").fadeOut(1000); // keep hidden
 // reset the animation on the text
 function typeToggle() {
 	var e = document.getElementById("question")
@@ -91,20 +93,20 @@ function switchQuestion() {
 			};
 			quizdata = {
 				image: "./images/love-indiana.jpg",
-				headline: "Which artist can you thank for the LOVE statue shown here?",
+				headline: "Which artist designed this sculpture?",
 				choices: ["Milton Glasier", "Alexander Calder", "Bob Indiana", "Louise Fili"],
-				explain: "Indiana designed this iconic wordplay, with its gently sloping O snuggling against the sturdy word \"LOVE.\" In other news, the design \"I ♥ NY\" by Milton Glasier can only be seen as a gift to the world, since it is endlessly copied."
+				explain: "Indiana designed this iconic wordplay, with its gently sloping O snuggling against the sturdy word \"LOVE.\""
 			};
 			break;
 		case 8:
 			quiz.answer = {
-				"steve jobs": true
+				"steve wozniak": true
 			};
 			quizdata = {
-				image: "./images/steve-jobs.jpg",
-				headline: "This leader never gave up when it came to the NeXT computer.",
-				choices: ["Steve Wozniak", "Steve Jobs", "Cameron Howe", "Steve Ballmer"],
-				explain: "Object-oriented programming and graphical user interfaces became more common after the 1988 release of the NeXTcube and NeXTSTEP. Toward the end of his life, Jobs reminded us that our time is limited; that we should live our life and not someone else's. He put a dent in the universe."
+				image: "./images/woz.jpg",
+				headline: "Who built the first Apple Computer?",
+				choices: ["Steve Jobs", "Steve Wozniak", "Steve Engelbart", "Steve Eich"],
+				explain: "In 1976, Wozniak and Steve Jobs founded Apple Computer with Wozniak's Apple I personal computer, later introducing his Apple II. \“Woz\” was awarded the National Medal of Technology by the President in 1985."
 			};
 			break;
 	};
@@ -169,17 +171,17 @@ $(document).on('mousedown', '.button', function() {
 					("<img src=\"./images/eat-die.jpg\" />")
 				);
 				break;
-			case 8: //NeXT
+			case 8: //woz
 				$('#explain').text(quizdata.explain);
 				$('#explain-video').empty();
 				$('#explain-video').append(
-					("<img src=\"./images/steve-jobs-small.jpg\" />")
+					("<iframe width=\"420\" height=\"236\" src=\"https://www.youtube.com/embed/pJif4i9NRdI\" frameborder=\"0\" allowfullscreen></iframe>")
 				);
 				break;
 
 		};
-		score = (score + 1);
-		questionFlag = (questionFlag + 1);
+		score++;
+		questionFlag++;
 	} else {
 		console.log("false")
 			// wrong answer behavior
@@ -190,19 +192,27 @@ $(document).on('mousedown', '.button', function() {
 
 $("a.close").click(function() {
 	// go to next question behavior
-	$(".overlay").fadeOut(1000);
-	switchQuestion();
-	console.log("you are now on question " + questionFlag);
-	console.log(quiz.answer);
-	$('.big-photo').css('background-image', 'url(' + quizdata.image + ')');
-	$('h1.question').text(quizdata.headline);
-	typeToggle() //reset headline animation
-	$('#choice-one').text(quizdata.choices[0]);
-	$('#choice-two').text(quizdata.choices[1]);
-	$('#choice-three').text(quizdata.choices[2]);
-	$('#choice-four').text(quizdata.choices[3]);
-	$('#content').empty(); //stop Youtube from playing beyond exit
-	$('#explain-video').empty();
+	if (questionFlag <= totalQuestions) { //are we still asking questions
+
+		$(".overlay").fadeOut(1000);
+		switchQuestion();
+		console.log("you are now on question " + questionFlag);
+		console.log(quiz.answer);
+		$('.big-photo').css('background-image', 'url(' + quizdata.image + ')');
+		$('h1.question').text(quizdata.headline);
+		typeToggle() //reset headline animation
+		$('#choice-one').text(quizdata.choices[0]);
+		$('#choice-two').text(quizdata.choices[1]);
+		$('#choice-three').text(quizdata.choices[2]);
+		$('#choice-four').text(quizdata.choices[3]);
+		$('#content').empty(); //stop Youtube from playing beyond exit
+		$('#explain-video').empty();
+	} else {
+		//goodbye
+		console.log("goodbye")
+		$("#modal").fadeOut(1000);
+		$("#goodbye").fadeIn(1000);
+	}
 });
 
 
