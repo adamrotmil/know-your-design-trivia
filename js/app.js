@@ -96,6 +96,17 @@ function switchQuestion() {
 				explain: "Indiana designed this iconic wordplay, with its gently sloping O snuggling against the sturdy word \"LOVE.\" In other news, the design \"I ♥ NY\" by Milton Glasier can only be seen as a gift to the world, since it is endlessly copied."
 			};
 			break;
+		case 8:
+			quiz.answer = {
+				"steve jobs": true
+			};
+			quizdata = {
+				image: "./images/steve-jobs.jpg",
+				headline: "This leader never gave up when it came to the NeXT computer.",
+				choices: ["Steve Wozniak", "Steve Jobs", "Cameron Howe", "Steve Ballmer"],
+				explain: "Object-oriented programming and graphical user interfaces became more common after the 1988 release of the NeXTcube and NeXTSTEP. Toward the end of his life, Jobs reminded us that our time is limited; that we should live our life and not someone else's. He put a dent in the universe."
+			};
+			break;
 	};
 };
 
@@ -156,6 +167,13 @@ $(document).on('mousedown', '.button', function() {
 				$('#explain-video').empty();
 				$('#explain-video').append(
 					("<img src=\"./images/eat-die.jpg\" />")
+				);
+				break;
+			case 8: //NeXT
+				$('#explain').text(quizdata.explain);
+				$('#explain-video').empty();
+				$('#explain-video').append(
+					("<img src=\"./images/steve-jobs-small.jpg\" />")
 				);
 				break;
 
