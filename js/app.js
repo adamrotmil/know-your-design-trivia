@@ -4,8 +4,17 @@ var totalQuestions = 9 // how many questions in this quiz
 var guessCount = 0 // how many guesses have you made
 var myNumber = Math.floor((Math.random() * 20) + 1); // pick a random number
 
+welcome = {};
+$(document).ready(function() {
+
+	console.log("ate a donut");
+	$('#slide-two').fadeIn(5000);
+	$('#slide-two').fadeOut(5000);
+});
+
+
 $(document).on('mousedown', '#start', function() {
-	$('#welcome').fadeOut(1);
+	$('#welcome-wrap').fadeOut(1);
 	$('.button-box').fadeIn(500);
 	$('.button-box').toggleClass('make-block');
 });

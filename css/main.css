@@ -8,6 +8,17 @@
 	z-index:9999;
 }
 
+.welcome-two {
+	background-image: url("../images/artichokes.jpg");
+	/* background-color:white; */
+	background-position: center bottom;
+	background-repeat: no repeat;
+	background-size: cover;
+	height: 50rem;
+	z-index:9999;
+	display: none;
+}
+
 .question {
 	font-family: 'Roboto', sans-serif; 
 	font-size: 24px; 
