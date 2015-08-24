@@ -2,14 +2,14 @@ var score = 0 // start with no score
 var questionFlag = 1 // which question are you on
 var totalQuestions = 9 // how many questions in this quiz
 var guessCount = 0 // how many guesses have you made
-var myNumber = Math.floor((Math.random() * 20) + 1); // pick a random number
+var myNumber = Math.floor((Math.random() * 12) + 1); // pick a random number
 
 welcome = {};
-$(document).ready(function() {
 
+$(document).ready(function() {
 	console.log("ate a donut");
-	$('#slide-two').fadeIn(5000);
-	$('#slide-two').fadeOut(5000);
+	$('#slide-two').fadeIn(10000);
+	$('#slide-two').fadeOut(10000);
 });
 
 
@@ -17,6 +17,8 @@ $(document).on('mousedown', '#start', function() {
 	$('#welcome-wrap').fadeOut(1);
 	$('.button-box').fadeIn(500);
 	$('.button-box').toggleClass('make-block');
+	$('#start').fadeOut(1);
+	$('#intro').fadeOut(1);
 });
 
 
