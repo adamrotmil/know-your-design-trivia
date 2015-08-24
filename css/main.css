@@ -1,3 +1,13 @@
+.welcome {
+	background-image: url("../images/welcome-test.jpg");
+	/* background-color:white; */
+	background-position: center bottom;
+	background-repeat: no repeat;
+	background-size: cover;
+	height: 50rem;
+	z-index:9999;
+}
+
 .question {
 	font-family: 'Roboto', sans-serif; 
 	font-size: 24px; 
@@ -36,6 +46,10 @@
 	position: absolute;
 	left: 0px;
 	top: 200px;
+	display: none;
+}
+
+.make-block {
 	display: block;
 }
 

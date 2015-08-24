@@ -3,6 +3,14 @@ var questionFlag = 1 // which question are you on
 var totalQuestions = 9 // how many questions in this quiz
 var guessCount = 0 // how many guesses have you made
 var myNumber = Math.floor((Math.random() * 20) + 1); // pick a random number
+
+$(document).on('mousedown', '#start', function() {
+	$('#welcome').fadeOut(1);
+	$('.button-box').fadeIn(500);
+	$('.button-box').toggleClass('make-block');
+});
+
+
 $('#goodbye').fadeOut(1000); // keep hidden
 // reset the animation on the text
 function typeToggle() {
